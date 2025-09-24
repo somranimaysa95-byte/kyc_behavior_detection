@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Demande de Crédit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+      padding: 40px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2f3640;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #353b48;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #dcdde1;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0097e6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #40739e;
+    }
+    #client-message {
+      margin-top: 20px;
+      font-style: italic;
+      color: #2f3640;
+    }
+    #prediction-result {
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #718093;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Demande de Crédit</h2>
+    <form id="kyc-form">
+      <label>Nom</label>
+      <input type="text" name="nom" id="nom" data-field-id="nom" required>
+      <label>Prénom</label>
+      <input type="text" name="prenom" id="prenom" data-field-id="prenom" required>
+      <label>CIN / Passeport</label>
+      <input type="text" name="cin" id="cin" data-field-id="cin" required>
+      <label>Adresse</label>
+      <input type="text" name="adresse" id="adresse" data-field-id="adresse" required>
+      <label>Profession</label>
+      <input type="text" name="profession" id="profession" data-field-id="profession" required>
+      <label>Revenu mensuel (TND)</label>
+      <input type="number" name="revenu" id="revenu" data-field-id="revenu" required>
+      <label>Montant demandé (TND)</label>
+      <input type="number" name="montant" id="montant" data-field-id="montant" required>
+      <label>Durée du crédit (mois)</label>
+      <input type="number" name="duree" id="duree" data-field-id="duree" required>
+      <label>Justificatif d'identité (PDF ou image)</label>
+      <input type="file" name="id_upload" id="id_upload" data-field-id="id_upload" accept="image/*,.pdf">
+      <label>Justificatif de revenu (PDF ou image)</label>
+      <input type="file" name="rev_upload" id="rev_upload" data-field-id="rev_upload" accept="image/*,.pdf">
+      <label>Selfie (image uniquement)</label>
+      <input type="file" name="selfie_upload" id="selfie_upload" data-field-id="selfie_upload" accept="image/*">
+      <button type="submit">Soumettre</button>
+    </form>
+    <div id="client-message"></div>
+    <div id="prediction-result"></div>
+  </div>
+  <script src="{{ url_for('static', filename='tracking.js') }}"></script>
+</body>
+</html>
